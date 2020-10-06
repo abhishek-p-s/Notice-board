@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notice board Admin</title>
+</head>
+<body>
+    <textarea name="notice" id="message" cols="100" rows="10"></textarea><br>
+    <button id="send">Update board</button>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket=io();
+        document.getElementById("send").addEventListener("click",()=>{
+            let text=document.getElementById("message").value;
+            socket.emit("notice",text);
+        })
+    </script>
+</body>
+</html>
